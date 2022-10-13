@@ -1,21 +1,103 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<groupId>com.tencent.tsf</groupId>
-		<artifactId>tsf-demo</artifactId>
-		<version>1.23.14-Greenwich-RELEASE</version>
+		<artifactId>tsf-demo-parent</artifactId>
+		<version>2020.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>provider-demo</artifactId>
 	<packaging>jar</packaging>
-	<name>provider-demo</name>
+	<name>Provider Demo</name>
+
+	<properties>
+		<springfox-swagger.version>3.0.0</springfox-swagger.version>
+	</properties>
 
 	<dependencies>
-		<!-- TSF 启动器 -->
+		<!-- spring 基础		-->
 		<dependency>
-			<groupId>com.tencent.tsf</groupId>
-			<artifactId>spring-cloud-tsf-starter</artifactId>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- spring cloud consul 相关依赖		-->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-config</artifactId>
+		</dependency>
+		<!-- swagger 相关		-->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger.version}</version>
+		</dependency>
+
+
+		<!-- 使用 reactive feign 时添加		-->
+		<dependency>
+			<groupId>com.playtika.reactivefeign</groupId>
+			<artifactId>feign-reactor-core</artifactId>
+			<version>${feign-reactor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.playtika.reactivefeign</groupId>
+			<artifactId>feign-reactor-webclient</artifactId>
+			<version>${feign-reactor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.playtika.reactivefeign</groupId>
+			<artifactId>feign-reactor-cloud</artifactId>
+			<version>${feign-reactor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.playtika.reactivefeign</groupId>
+			<artifactId>feign-reactor-spring-configuration</artifactId>
+			<version>${feign-reactor.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>okhttp</artifactId>
+			<version>3.14.9</version>
 		</dependency>
 	</dependencies>
 </project>

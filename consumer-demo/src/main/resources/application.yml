@@ -1,8 +1,16 @@
-logging:
-  file: /tsf-demo-logs/${spring.application.name}/root.log
-  level: 
-    root: INFO
-management:
-  security:
-    enabled: false
+consumer:
+  auto:
+    test:
+      enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    root: info
+  file:
+    name: /tsf-demo-logs/${spring.application.name}/root.log
